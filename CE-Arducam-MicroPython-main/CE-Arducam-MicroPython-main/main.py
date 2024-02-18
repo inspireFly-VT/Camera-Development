@@ -666,8 +666,6 @@ class Camera:
 
 
 ################################################################## CODE ACTUAL ##################################################################
-int count = 0
-
 spi = SPI(0,sck=Pin(18), miso=Pin(16), mosi=Pin(19), baudrate=8000000)
 cs = Pin(17, Pin.OUT)
 
@@ -683,9 +681,8 @@ cam.set_contrast(cam.CONTRAST_MINUS_3)
 
 onboard_LED.on()
 cam.capture_jpg()
-#sleep_ms(50)
-cam.saveJPG('image' + count + '.jpg')
-count++
+sleep_ms(50)
+cam.saveJPG('image.jpg')
 onboard_LED.off()
 
 
