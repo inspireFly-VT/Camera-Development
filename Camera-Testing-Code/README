@@ -1,2 +1,6 @@
 This should help with using and testing the camera
 Make sure to download the Camera.py file
+
+The Camera.py file contains all the declarations/definitions to get the camera working.
+Camera_Testing contains the function definitions. This can be used to take a picture, however, make sure to uncomment at line 46.
+External File Code.py shows how the take picture function would be called from an external source
