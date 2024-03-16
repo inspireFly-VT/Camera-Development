@@ -21,9 +21,19 @@ def TakePicture(imageName, resolution):
 
 def TakeMultiplePictures(imageName, resolution, interval, count):
     cam.resolution = resolution
-    for x in range(count): 
+    for x in range(count):
+        if x!=0:
+            endImageName = imageName + str(x + 1) + '.jpg'
+            try:
+                uos.remove(endImageName)
+            except:
+                print("File does not exist!")
+    for x in range(count):
         endImageName = imageName + str(x + 1) + '.jpg'
         TakePicture(endImageName, resolution)
+        sleep_ms(500)
+        if x==0:
+            uos.remove(endImageName)
         sleep_ms(interval)
       
 #Not sure what default values to use
@@ -43,8 +53,8 @@ def TakeMultiplePictures(imageName, resolution, interval, count):
 #When the LED is on it is taking the picture
 '''
 ##########################################
-TakePicture('Final Test', '640x480')
-#TakeMultiplePictures('Test_Images', '640x480', 500, 5)
+#TakePicture('Final Test', '640x480')
+TakeMultiplePictures('Test_Images', '640x480', 500, 2)
 ##########################################
 '''
 Valid 3MP Resolutions

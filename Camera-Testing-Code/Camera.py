@@ -260,10 +260,11 @@ class Camera:
     def startup_routine_3MP(self):
         # Leave the shutter open for some time seconds (i.e. take a few photos without saving)
         print('Running 3MP startup routine')
-        self.capture_jpg()
-        self.saveJPG('dummy_image.jpg')
-        uos.remove('dummy_image.jpg')
-        print('complete')
+#         sleep_ms(500)
+#         self.capture_jpg()
+#         self.saveJPG('dummy_image.jpg')
+#         uos.remove('dummy_image.jpg')
+#         print('complete')
 
     '''
     Issue warning if the filepath doesnt end in .jpg (Blank) and append
@@ -411,8 +412,8 @@ class Camera:
                 raise ValueError("Invalid resolution provided for {}, please select from {}".format(self.camera_idx, list(self.valid_3mp_resolutions.keys())))
 
         elif self.camera_idx == '5MP':
-            if input_string_lower in self.valid_5mp_resolutions:
-                self.current_resolution_setting = self.valid_5mp_resolutions[input_string_lower]
+            if input_string_lower in self.valid_3mp_resolutions:
+                self.current_resolution_setting = self.valid_3mp_resolutions[input_string_lower] #used to be 5mp here?
             else:
                 raise ValueError("Invalid resolution provided for {}, please select from {}".format(self.camera_idx, list(self.valid_5mp_resolutions.keys())))
     
